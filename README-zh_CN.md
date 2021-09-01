@@ -1,3 +1,6 @@
+## 👻 我做了什么
+- 更新了 And v4 的升级文档中关于 Paganation 组件的部分，[PR](https://github.com/ant-design/ant-design/pull/31270) 的地址在这里。
+---
 <p align="center">
   <a href="https://ant.design">
     <img width="200" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
@@ -48,9 +51,6 @@
 [![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Ey3wTo-5__QAAAAAAAAAAABkARQnAQ)](https://ant.design/index-cn)
 
 [English](./README.md) | [Português](./README-pt_BR.md) | 简体中文 | [Українською](./README-uk_UA.md)
-
-## 👻 我做了什么
-- 更新了 And v4 的升级文档中关于 Paganation 组件的部分，[PR](https://github.com/ant-design/ant-design/pull/31270) 的地址在这里。
 
 ## ✨ 特性
 

@@ -1,3 +1,6 @@
+## 👻 What did I do
+- update doc of migration to antd v4 and [PR](https://github.com/ant-design/ant-design/pull/31270) is mergied
+---
 <p align="center">
   <a href="https://ant.design">
     <img width="200" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
@@ -48,9 +51,6 @@ An enterprise-class UI design language and React UI library.
 [![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yl83RJhUE7kAAAAAAAAAAABkARQnAQ)](https://ant.design)
 
 English | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md) | [Українською](./README-uk_UA.md)
-
-## 👻 What did I do
-- update doc of migration to antd v4 and [PR](https://github.com/ant-design/ant-design/pull/31270) is mergied
 
 ## ✨ Features
 
