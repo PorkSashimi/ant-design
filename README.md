@@ -49,6 +49,9 @@ An enterprise-class UI design language and React UI library.
 
 English | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md) | [Українською](./README-uk_UA.md)
 
+## 👻 What did I do
+- update doc of migration to antd v4 and [PR](https://github.com/ant-design/ant-design/pull/31270) is mergied
+
 ## ✨ Features
 
 - 🌈 Enterprise-class UI designed for web applications.

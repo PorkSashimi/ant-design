@@ -49,6 +49,9 @@
 
 [English](./README.md) | [Português](./README-pt_BR.md) | 简体中文 | [Українською](./README-uk_UA.md)
 
+## 👻 我做了什么
+- 更新了 And v4 的升级文档中关于 Paganation 组件的部分，[PR](https://github.com/ant-design/ant-design/pull/31270) 的地址在这里。
+
 ## ✨ 特性
 
 - 🌈 提炼自企业级中后台产品的交互语言和视觉风格。
