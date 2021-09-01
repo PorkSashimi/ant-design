@@ -1,4 +1,4 @@
-## 👻 What did I do
+# 👻 What did I do
 - update doc of migration to antd v4 and [PR](https://github.com/ant-design/ant-design/pull/31270) is mergied
 ---
 <p align="center">
