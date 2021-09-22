@@ -2,7 +2,7 @@
 - Document
   - [update doc of migration to antd v4](https://github.com/ant-design/ant-design/pull/31270)
 - Component
-  - [fix logic of Paganation](https://github.com/react-component/pagination/commit/ca84b62517e3447db1c4326dc3e9d7b599615034)
+  - [fix logic of Paganation](https://github.com/react-component/pagination/pull/347)
 ---
 <p align="center">
   <a href="https://ant.design">
