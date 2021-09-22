@@ -1,8 +1,8 @@
 # 👻 What did I do
 - Document
-  - [update doc of migration to antd v4](https://github.com/ant-design/ant-design/pull/31270)
+  - update doc of migration to antd v4 [#31270](https://github.com/ant-design/ant-design/pull/31270)
 - Component
-  - [fix logic of Paganation](https://github.com/react-component/pagination/pull/347)
+  - fix(Pagination): onChange should be forbidden when total is zero [#347](https://github.com/react-component/pagination/pull/347)
 ---
 <p align="center">
   <a href="https://ant.design">
