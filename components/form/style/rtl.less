@@ -32,6 +32,7 @@
           margin-left: 4px;
         }
       }
+
       &::after {
         .@{form-prefix-cls}-rtl & {
           margin: 0 @form-item-label-colon-margin-left 0 @form-item-label-colon-margin-right;
@@ -73,6 +74,14 @@
         }
       }
       .@{ant-prefix}-input {
+        .@{form-prefix-cls}-rtl & {
+          padding: 0;
+        }
+      }
+    }
+
+    .@{ant-prefix}-input-number-affix-wrapper {
+      .@{ant-prefix}-input-number {
         .@{form-prefix-cls}-rtl & {
           padding: 0;
         }
@@ -130,6 +139,7 @@
           margin-left: 19px;
         }
       }
+
       &-clear {
         .@{form-prefix-cls}-rtl & {
           right: auto;

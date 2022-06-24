@@ -15,7 +15,7 @@
   white-space: nowrap;
   background: @tag-default-bg;
   border: @border-width-base @border-style-base @border-color-base;
-  border-radius: @border-radius-base;
+  border-radius: @tag-border-radius;
   opacity: 1;
   transition: all 0.3s;
 
@@ -58,16 +58,20 @@
     background-color: transparent;
     border-color: transparent;
     cursor: pointer;
+
     &:not(&-checked):hover {
       color: @primary-color;
     }
+
     &:active,
     &-checked {
       color: @text-color-inverse;
     }
+
     &-checked {
       background-color: @primary-6;
     }
+
     &:active {
       background-color: @primary-7;
     }

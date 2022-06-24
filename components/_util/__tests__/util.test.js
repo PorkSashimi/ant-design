@@ -1,17 +1,18 @@
-import raf from 'rc-util/lib/raf';
-import React from 'react';
+/* eslint-disable class-methods-use-this */
 import { mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
+import raf from 'rc-util/lib/raf';
+import React from 'react';
+import { sleep } from '../../../tests/utils';
+import getDataOrAriaProps from '../getDataOrAriaProps';
 import delayRaf from '../raf';
+import { isStyleSupport } from '../styleChecker';
 import {
   throttleByAnimationFrame,
   throttleByAnimationFrameDecorator,
 } from '../throttleByAnimationFrame';
-import getDataOrAriaProps from '../getDataOrAriaProps';
-import Wave from '../wave';
 import TransButton from '../transButton';
-import { isStyleSupport } from '../styleChecker';
-import { sleep } from '../../../tests/utils';
+import Wave from '../wave';
 
 describe('Test utils function', () => {
   describe('throttle', () => {
@@ -43,7 +44,6 @@ describe('Test utils function', () => {
       const callbackFn = jest.fn();
       class Test {
         @throttleByAnimationFrameDecorator()
-        // eslint-disable-next-line class-methods-use-this
         callback() {
           callbackFn();
         }
@@ -148,7 +148,9 @@ describe('Test utils function', () => {
             button
           </button>
         </Wave>,
-      ).instance();
+      )
+        .find(Wave)
+        .instance();
       expect(wrapper.bindAnimationEvent()).toBe(undefined);
     });
 
@@ -159,7 +161,9 @@ describe('Test utils function', () => {
             button
           </button>
         </Wave>,
-      ).instance();
+      )
+        .find(Wave)
+        .instance();
       expect(wrapper.bindAnimationEvent()).toBe(undefined);
     });
 
@@ -168,7 +172,9 @@ describe('Test utils function', () => {
         <Wave>
           <input />
         </Wave>,
-      ).instance();
+      )
+        .find(Wave)
+        .instance();
       expect(wrapper.bindAnimationEvent()).toBe(undefined);
     });
 

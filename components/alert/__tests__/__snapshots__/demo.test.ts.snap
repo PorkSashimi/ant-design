@@ -118,7 +118,7 @@ Array [
       class="ant-alert-action"
     >
       <button
-        class="ant-btn ant-btn-sm ant-btn-dangerous"
+        class="ant-btn ant-btn-default ant-btn-sm ant-btn-dangerous"
         type="button"
       >
         <span>
@@ -954,7 +954,7 @@ Array [
 
 exports[`renders ./components/alert/demo/error-boundary.md correctly 1`] = `
 <button
-  class="ant-btn ant-btn-dangerous"
+  class="ant-btn ant-btn-default ant-btn-dangerous"
   type="button"
 >
   <span>
@@ -1352,24 +1352,7 @@ exports[`renders ./components/alert/demo/loop-banner.md correctly 1`] = `
   >
     <div
       class="ant-alert-message"
-    >
-      <div
-        class="x0 x1 x2 x3 "
-      >
-        <div
-          style="transition:width 150ms linear;height:auto;width:auto"
-        >
-          <div
-            class="x1 x4 x5 x6"
-            style="opacity:1;transform:translateY(0px);position:relative"
-          >
-            <div>
-              Notice message one
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    />
   </div>
 </div>
 `;

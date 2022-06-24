@@ -1,10 +1,11 @@
-import * as React from 'react';
 import classNames from 'classnames';
-import Dialog, { ModalFuncProps } from './Modal';
-import ActionButton from '../_util/ActionButton';
-import devWarning from '../_util/devWarning';
+import * as React from 'react';
 import ConfigProvider from '../config-provider';
+import ActionButton from '../_util/ActionButton';
 import { getTransitionName } from '../_util/motion';
+import warning from '../_util/warning';
+import type { ModalFuncProps } from './Modal';
+import Dialog from './Modal';
 
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
@@ -33,6 +34,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     cancelButtonProps,
     direction,
     prefixCls,
+    wrapClassName,
     rootPrefixCls,
     iconPrefixCls,
     bodyStyle,
@@ -42,7 +44,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     focusTriggerAfterClose,
   } = props;
 
-  devWarning(
+  warning(
     !(typeof icon === 'string' && icon.length > 2),
     'Modal',
     `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
@@ -84,7 +86,10 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       <Dialog
         prefixCls={prefixCls}
         className={classString}
-        wrapClassName={classNames({ [`${contentPrefixCls}-centered`]: !!props.centered })}
+        wrapClassName={classNames(
+          { [`${contentPrefixCls}-centered`]: !!props.centered },
+          wrapClassName,
+        )}
         onCancel={() => close({ triggerCancel: true })}
         visible={visible}
         title=""
@@ -95,6 +100,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
         maskClosable={maskClosable}
         maskStyle={maskStyle}
         style={style}
+        bodyStyle={bodyStyle}
         width={width}
         zIndex={zIndex}
         afterClose={afterClose}
@@ -107,7 +113,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
         focusTriggerAfterClose={focusTriggerAfterClose}
       >
         <div className={`${contentPrefixCls}-body-wrapper`}>
-          <div className={`${contentPrefixCls}-body`} style={bodyStyle}>
+          <div className={`${contentPrefixCls}-body`}>
             {icon}
             {props.title === undefined ? null : (
               <span className={`${contentPrefixCls}-title`}>{props.title}</span>

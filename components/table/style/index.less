@@ -12,6 +12,7 @@
 @table-sticky-zindex: calc(@zindex-table-fixed + 1);
 @table-sticky-scroll-bar-active-bg: fade(@table-sticky-scroll-bar-bg, 80%);
 @table-filter-dropdown-max-height: 264px;
+@table-expand-column-width: 48px;
 
 .@{table-prefix-cls}-wrapper {
   clear: both;
@@ -130,8 +131,8 @@
         > .@{table-prefix-cls}-wrapper:only-child,
         > .@{table-prefix-cls}-expanded-row-fixed > .@{table-prefix-cls}-wrapper:only-child {
           .@{table-prefix-cls} {
-            margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
-                  ceil(@font-size-sm * 1.4));
+            margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-expand-column-width -
+                  @table-padding-horizontal);
 
             &-tbody > tr:last-child > td {
               border-bottom: 0;
@@ -145,10 +146,9 @@
         }
       }
 
-      &.@{table-prefix-cls}-row:hover {
-        > td {
-          background: @table-row-hover-bg;
-        }
+      &.@{table-prefix-cls}-row:hover > td,
+      > td.@{table-prefix-cls}-cell-row-hover {
+        background: @table-row-hover-bg;
       }
 
       &.@{table-prefix-cls}-row-selected {
@@ -217,6 +217,7 @@
 
   // ============================ Sorter ============================
   &-thead th.@{table-prefix-cls}-column-has-sorters {
+    outline: none;
     cursor: pointer;
     transition: all 0.3s;
 
@@ -226,6 +227,10 @@
       &::before {
         background-color: transparent !important;
       }
+    }
+
+    &:focus-visible {
+      color: @primary-color;
     }
 
     // https://github.com/ant-design/ant-design/issues/30969
@@ -358,7 +363,7 @@
     }
 
     &-tree {
-      padding: 8px 8px 0 8px;
+      padding: 8px 8px 0;
 
       .@{tree-prefix-cls}-treenode .@{tree-prefix-cls}-node-content-wrapper:hover {
         background-color: @tree-node-hover-bg;
@@ -457,7 +462,7 @@
       cursor: pointer;
       transition: all 0.3s;
       margin-inline-start: 100%;
-      padding-inline-start: @padding-xss;
+      padding-inline-start: (@table-padding-horizontal / 4);
 
       .@{iconfont-css-prefix} {
         color: @table-header-icon-color;
@@ -472,7 +477,7 @@
 
   // ========================== Expandable ==========================
   &-expand-icon-col {
-    width: 48px;
+    width: @table-expand-column-width;
   }
 
   &-row-expand-icon-cell {
@@ -509,13 +514,13 @@
     &:focus,
     &:hover,
     &:active {
-      border-color: currentColor;
+      border-color: currentcolor;
     }
 
     &::before,
     &::after {
       position: absolute;
-      background: currentColor;
+      background: currentcolor;
       transition: transform 0.3s ease-out;
       content: '';
     }
@@ -539,6 +544,7 @@
     &-collapsed::before {
       transform: rotate(-180deg);
     }
+
     &-collapsed::after {
       transform: rotate(0deg);
     }
@@ -593,6 +599,7 @@
     .@{table-prefix-cls}-empty & {
       color: @disabled-color;
     }
+
     &:hover {
       > td {
         background: @component-background;
@@ -603,7 +610,6 @@
   // ============================ Fixed =============================
   &-cell-fix-left,
   &-cell-fix-right {
-    position: -webkit-sticky !important;
     position: sticky !important;
     z-index: @zindex-table-fixed;
     background: @table-bg;
@@ -651,6 +657,7 @@
     &::before {
       left: 0;
     }
+
     &::after {
       right: 0;
     }
@@ -689,6 +696,7 @@
       box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
     }
   }
+
   &-sticky {
     &-holder {
       position: sticky;
@@ -705,16 +713,20 @@
       background: lighten(@table-border-color, 80%);
       border-top: 1px solid @table-border-color;
       opacity: 0.6;
+
       &:hover {
         transform-origin: center bottom;
       }
+
       &-bar {
         height: 8px;
         background-color: @table-sticky-scroll-bar-bg;
         border-radius: @table-sticky-scroll-bar-radius;
+
         &:hover {
           background-color: @table-sticky-scroll-bar-active-bg;
         }
+
         &-active {
           background-color: @table-sticky-scroll-bar-active-bg;
         }
@@ -730,6 +742,7 @@
         box-shadow: none !important;
       }
     }
+
     &-ping-right {
       .@{table-prefix-cls}-cell-fix-right-first::after {
         box-shadow: none !important;

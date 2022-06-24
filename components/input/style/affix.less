@@ -1,5 +1,4 @@
 @import './mixin';
-
 @import (reference) '../../style/themes/index';
 @input-prefix-cls: ~'@{ant-prefix}-input';
 
@@ -51,6 +50,18 @@
     display: flex;
     flex: none;
     align-items: center;
+
+    > *:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+
+  &-show-count-suffix {
+    color: @text-color-secondary;
+  }
+
+  &-show-count-has-suffix {
+    margin-right: 2px;
   }
 
   &-prefix {

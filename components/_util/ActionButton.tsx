@@ -1,6 +1,8 @@
+import useState from 'rc-util/lib/hooks/useState';
 import * as React from 'react';
 import Button from '../button';
-import { LegacyButtonType, ButtonProps, convertLegacyProps } from '../button/button';
+import type { ButtonProps, LegacyButtonType } from '../button/button';
+import { convertLegacyProps } from '../button/button';
 
 export interface ActionButtonProps {
   type?: LegacyButtonType;
@@ -11,6 +13,7 @@ export interface ActionButtonProps {
   buttonProps?: ButtonProps;
   emitEvent?: boolean;
   quitOnNullishReturnValue?: boolean;
+  children?: React.ReactNode;
 }
 
 function isThenable(thing?: PromiseLike<any>): boolean {
@@ -20,7 +23,7 @@ function isThenable(thing?: PromiseLike<any>): boolean {
 const ActionButton: React.FC<ActionButtonProps> = props => {
   const clickedRef = React.useRef<boolean>(false);
   const ref = React.useRef<any>();
-  const [loading, setLoading] = React.useState<ButtonProps['loading']>(false);
+  const [loading, setLoading] = useState<ButtonProps['loading']>(false);
 
   React.useEffect(() => {
     let timeoutId: any;
@@ -43,7 +46,7 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
     setLoading(true);
     returnValueOfOnOk!.then(
       (...args: any[]) => {
-        setLoading(false);
+        setLoading(false, true);
         close(...args);
         clickedRef.current = false;
       },
@@ -52,7 +55,7 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
         // eslint-disable-next-line no-console
         console.error(e);
         // See: https://github.com/ant-design/ant-design/issues/6183
-        setLoading(false);
+        setLoading(false, true);
         clickedRef.current = false;
       },
     );

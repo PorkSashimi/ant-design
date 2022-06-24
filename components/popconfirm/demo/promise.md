@@ -1,5 +1,6 @@
 ---
 order: 7
+version: 4.17.0
 title:
   zh-CN: 基于 Promise 的异步关闭
   en-US: Asynchronously close on Promise
@@ -13,13 +14,14 @@ title:
 
 Asynchronously close a popconfirm when the OK button is pressed. For example, you can use this pattern when you submit a form.
 
-```jsx
+```tsx
 import { Button, Popconfirm } from 'antd';
+import React from 'react';
 
-const App = () => {
+const App: React.FC = () => {
   const confirm = () =>
     new Promise(resolve => {
-      setTimeout(() => resolve(), 3000);
+      setTimeout(() => resolve(null), 3000);
     });
 
   return (
@@ -33,5 +35,5 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```
